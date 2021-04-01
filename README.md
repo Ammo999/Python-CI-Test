@@ -50,3 +50,41 @@ all: install lint test
 
 
 
+# Now create Githyb Actions
+Github: Actions -> Create workflow
+Github:Add the YAML code and press start commit (grreen button)
+Github: Add description
+
+typically looks like
+
+name: Python application test with Github Actions
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        make install
+    - name: Lint with pylint
+      run: |
+        make lint
+    - name: Test with pytest
+      run: |
+        make test
+    - name: Format code
+      run: |
+        make format
+
+
+Github: Goto Actions. Click on new workspace created
+
