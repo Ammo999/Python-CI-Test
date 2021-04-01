@@ -18,4 +18,33 @@ First test to create a Python CI flow
 Github: goto the new repository, copy the git reop code (green code button) ZZZZ. Make sure to use the SSH clone path
 AWS-C9: "git clone" ZZZZ, enter "yes" when prompted
 
+# Now create Vitrutal Environment in AWS
+AWS-C9: "python3 -m venv ~/.github-python-ci"          (github-python-ci is the name of whaever you choose)
+AWS-C9: "source ~/.github-python-ci/bin/activate"      (github-python-ci is the name chosen earlier)
+AWS-C9: make a reqirements.txt file to contain all of the packages required
+        black
+        pylint
+        pytest
+        pytest-cov
+        click
+        
+AWS-C9: Make Makefile
+
+install:
+	    pip install --upgrade pip &&\
+		pip install -r requirements.txt
+
+test:
+	pytest -vv --cov-report term-missing --cov=app test_*.py
+
+format:
+	black *.py
+
+lint:
+	pylint --disable=R,C app.py web.py
+
+all: install lint test
+
+
+
 
