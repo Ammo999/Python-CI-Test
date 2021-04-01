@@ -1,3 +1,5 @@
+[![Python application test with Github Actions](https://github.com/Ammo999/Python-CI-Test/actions/workflows/main.yml/badge.svg)](https://github.com/Ammo999/Python-CI-Test/actions/workflows/main.yml)
+
 # Python-CI-Test
 First test to create a Python CI flow
 
