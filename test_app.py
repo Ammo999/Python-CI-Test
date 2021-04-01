@@ -1,6 +1,4 @@
-def add(x,y):
-    """ This is an addition function"""
-    
-    return x+y
-    
-print(add(4,5))
+from app import add
+
+def test_add():
+    assert 9 == add(4,5)
